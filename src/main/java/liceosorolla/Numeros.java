@@ -16,7 +16,15 @@ public class Numeros {
 			System.out.println("Es primo");
 		}
 		}
-	
+	public static int factorial(int n) {
+        int resultado = 1;
+        
+        for (int i = 1; i <= n; i++) {
+            resultado = resultado * i;
+        }
+        
+        return resultado;
+    }
 
 	private static void segundos(int numero2) {
 		int minutos;
@@ -59,6 +67,25 @@ public class Numeros {
     	}
     	
     }
+	public static boolean es_suerte(int num) {
+		
+		int contador = 2;
+		int siguientePosicion = num;
+		
+		 while (contador < num){
+			  
+		  if(num % contador == 0){
+			  return false;
+			  
+		  }
+		  siguientePosicion -= siguientePosicion/contador;
+		  		    
+		  			contador++;
+      	
+		  }
+		
+		return true;
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -67,29 +94,46 @@ public class Numeros {
 		
 		int numero = 0;
 		int numero2;
+		int n = 0;
+		int num,a=1,b=0,c;
+		String numero4 = "";
 		
-		//Primer Ejercicio
 		do {
 			System.out.println("Introduce un numero: ");
 			numero=teclado1.nextInt();
+			n=teclado1.nextInt();
 			if(numero>0)
 			calculaPrimo(numero);
 		}while(numero!=0);
 		
+		System.out.println(factorial(5));
 		
-		//Tercer Ejercicio
+		
 		System.out.println("Ponme el numero que quieras pasar a minutos y horas: ");
 		numero2=teclado1.nextInt();
 		
 		segundos(numero2);
 		
 		
-		//Quinto Ejercicio
+	    System.out.println("First 20 Pell numbers: ");
+	    for(num=1; num<=20; num++)
+	     {
+	      c= a + 2*b;
+	      System.out.print(c+" ");
+	      a = b;
+	      b = c;
+	     }
+		
 		int numero3;
 		System.out.println("Indica el numero que quiera escoger");
 		numero3=teclado1.nextInt();
 		
 		Armstrong(numero3);
+		
+		System.out.println("Dime un numero: ");
+			numero4 = teclado1.next();
+		
+		es_suerte(num);
 	}
 }
 
